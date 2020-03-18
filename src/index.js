@@ -26,15 +26,19 @@ import LoginPage from "./views/LoginPage.js"
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
 import "assets/css/nucleo-icons.css";
+import { Security, LoginCallback } from '@okta/okta-react';
+import Home from './views/Home.js'
+import AppWithRouterAccess from './routes/AppWithRouterAccess'
 
 const hist = createBrowserHistory();
+
+
+
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Route path="/login" component={LoginPage}/>
-      <Redirect from="/" to="/admin/dashboard" />
+      <AppWithRouterAccess/>
     </Switch>
   </Router>,
   document.getElementById("root")
