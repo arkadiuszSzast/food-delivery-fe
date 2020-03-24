@@ -60,7 +60,7 @@ class Admin extends React.Component {
     }
   }
   componentDidUpdate(e) {
-    if (e.history.action === "PUSH") {
+    if (e.history && e.history.action === "PUSH") {
       if (navigator.platform.indexOf("Win") > -1) {
         let tables = document.querySelectorAll(".table-responsive");
         for (let i = 0; i < tables.length; i++) {
@@ -135,12 +135,12 @@ class Admin extends React.Component {
             />
             <Switch>
               {this.getRoutes(routes)}
-              <Redirect from="*" to="/admin/dashboard"/>
+              <Redirect from="*" to="/admin/dashboard" />
             </Switch>
             {// we don't want the Footer to be rendered on map page
-            this.props.location.pathname.indexOf("maps") !== -1 ? null : (
-              <Footer fluid />
-            )}
+              this.props.location.pathname.indexOf("maps") !== -1 ? null : (
+                <Footer fluid />
+              )}
           </div>
         </div>
         <FixedPlugin
