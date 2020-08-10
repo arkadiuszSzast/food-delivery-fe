@@ -13,9 +13,9 @@ const AppWithRouterAccess = () => {
   };
 
   const config = {
-    issuer: `https://${process.env.REACT_APP_OKTA_URL}/oauth2/default`,
+    issuer: `https://dev-826281.oktapreview.com/oauth2/default`,
     redirectUri: window.location.origin + "/implicit/callback",
-    clientId: `${process.env.REACT_APP_OKTA_CLIEND_ID}`,
+    clientId: `0oaqhr4dajPv04F9p0h7`,
     pkce: true
   };
 
@@ -26,7 +26,7 @@ const AppWithRouterAccess = () => {
             <SecureRoute path="/protected" exact component={Protected} />
             <SecureRoute path="/admin" render={props => <AdminLayout {...props} />} />
             <Route path="/implicit/callback" exact component={LoginCallback} />
-            <Route path='/login' exact render={() => <LoginPage baseUrl={`https://${process.env.REACT_APP_OKTA_URL}`} />} />
+            <Route path='/login' exact render={() => <LoginPage baseUrl={`https://dev-826281.oktapreview.com`} />} />
         </Switch>
       </Security>
   );
